@@ -24,6 +24,7 @@ namespace vidlyC.Controllers
             {
                 Movie = movie,
                 Customers = customers
+               
             };
             //var viewResult = new ViewResult();
             //viewResult.ViewData.Model
@@ -34,6 +35,23 @@ namespace vidlyC.Controllers
             //return HttpNotFound();
             //return new EmptyResult();
             //return RedirectToAction("Index", "Home", new {page = 1, sortBy = "1}"}); //name of action, controller, 
+        }
+
+        public ActionResult Movies()
+        {
+            var movies = new List<Movie>
+            {
+                new Movie { Name = "Shrek"},
+                new Movie { Name = "Wall-e"}
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movies = movies,
+            };
+
+
+            return View(viewModel);
         }
 
         public ActionResult Edit(int id)
